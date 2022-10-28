@@ -5,7 +5,6 @@ namespace Src\Electricity\Readings\Application\Import;
 use Src\Electricity\Readings\Domain\Contracts\ReadingImportRepositoryContract;
 use Src\Electricity\Readings\Domain\Contracts\ReadingRepositoryContract;
 use Illuminate\Http\Response;
-use Src\Electricity\Readings\Domain\Exceptions\ReadingException;
 
 class ReadingImportUseCase
 {

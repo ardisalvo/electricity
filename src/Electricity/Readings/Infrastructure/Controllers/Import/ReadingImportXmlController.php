@@ -4,19 +4,19 @@ namespace Src\Electricity\Readings\Infrastructure\Controllers\Import;
 
 use Illuminate\Http\Response;
 use Src\Electricity\Readings\Application\Import\ReadingImportUseCase;
-use Src\Electricity\Readings\Infrastructure\Repositories\Csv\CsvReadingImportRepository;
 use Src\Electricity\Readings\Infrastructure\Repositories\Eloquent\EloquentReadingRepository;
+use Src\Electricity\Readings\Infrastructure\Repositories\Xml\XmlReadingImportRepository;
 
-class ReadingImportCsvController
+class ReadingImportXmlController
 {
     private ReadingImportUseCase $useCase;
-    private CsvReadingImportRepository $repositoryImport;
+    private XmlReadingImportRepository $repositoryImport;
     private EloquentReadingRepository $eloquentRepository;
     private string $csvName;
 
     public function __construct(
         string $csvName,
-        CsvReadingImportRepository $repositoryImport,
+        XmlReadingImportRepository $repositoryImport,
         EloquentReadingRepository $eloquentRepository,
     ) {
         $this->csvName = $csvName;

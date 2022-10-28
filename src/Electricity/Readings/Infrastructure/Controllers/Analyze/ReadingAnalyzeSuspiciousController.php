@@ -17,7 +17,7 @@ class ReadingAnalyzeSuspiciousController
         $this->useCase = new ReadingAnalyzeSuspiciousUseCase($this->eloquentRepository);
     }
 
-    public function __invoke()
+    public function __invoke(): array
     {
         return $this->useCase->__invoke();
     }
