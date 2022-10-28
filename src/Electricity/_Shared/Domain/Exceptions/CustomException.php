@@ -2,7 +2,7 @@
 
 namespace Src\Electricity\_Shared\Domain\Exceptions;
 
-final class CustomException extends \Exception
+class CustomException extends \Exception
 {
     /**
      * Report the exception.

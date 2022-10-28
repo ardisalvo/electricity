@@ -14,13 +14,12 @@ class ReadingAnalyzeSuspiciousUseCase
         $this->repository = $repository;
     }
 
-
     public function __invoke()
     {
         $readingsGroupedByClient = $this->repository->getGroupedByClient();
         $suspiciousReadings = [];
 
-        foreach ($readingsGroupedByClient as $client => $readings) {
+        foreach ($readingsGroupedByClient as $readings) {
             $readingMedian = $readings->avg('reading_value') * 1.5;
             $filteredReadings = $this->filterSuspiciousReadings($readings, $readingMedian);
             $formattedReadings[] = $this->formatReadings($filteredReadings);

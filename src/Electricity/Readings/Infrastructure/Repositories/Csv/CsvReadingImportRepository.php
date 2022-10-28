@@ -17,10 +17,10 @@ class CsvReadingImportRepository implements ReadingImportRepositoryContract
             $primitiveCsv[] = $row;
         }
 
-        return $this->formatPrimitiveCsvToCollection($primitiveCsv);
+        return $this->formatPrimitiveCsvToReadingArray($primitiveCsv);
     }
 
-    private function formatPrimitiveCsvToCollection(array $primitiveCsv): array
+    private function formatPrimitiveCsvToReadingArray(array $primitiveCsv): array
     {
         $readings = [];
 
