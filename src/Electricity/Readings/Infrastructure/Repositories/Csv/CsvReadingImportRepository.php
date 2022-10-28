@@ -10,11 +10,11 @@ class CsvReadingImportRepository implements ReadingImportRepositoryContract
 {
     public function import(string $fileUrl): array
     {
-        if(!file_exists($fileUrl)){
+        if (!file_exists($fileUrl)) {
             throw new ReadingException('File not found', 404);
         }
 
-        if(filesize($fileUrl) > 2048){
+        if (filesize($fileUrl) > (2048 * 1024)) {
             throw new ReadingException('The file is too large. Maximum 2MB.', 500);
         }
 
