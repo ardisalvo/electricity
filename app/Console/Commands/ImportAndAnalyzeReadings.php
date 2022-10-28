@@ -5,7 +5,6 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Src\Electricity\Readings\Domain\Exceptions\ReadingException;
 use Src\Electricity\Readings\Infrastructure\Controllers\Analyze\ReadingAnalyzeSuspiciousController;
-use Src\Electricity\Readings\Infrastructure\Controllers\Import\ReadingImportCsvController;
 use Src\Electricity\Readings\Infrastructure\Repositories\Eloquent\EloquentReadingRepository;
 
 class ImportAndAnalyzeReadings extends Command

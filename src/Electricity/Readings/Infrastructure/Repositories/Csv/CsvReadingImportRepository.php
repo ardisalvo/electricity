@@ -3,12 +3,21 @@
 namespace Src\Electricity\Readings\Infrastructure\Repositories\Csv;
 
 use Src\Electricity\Readings\Domain\Contracts\ReadingImportRepositoryContract;
+use Src\Electricity\Readings\Domain\Exceptions\ReadingException;
 use Src\Electricity\Readings\Domain\Reading;
 
 class CsvReadingImportRepository implements ReadingImportRepositoryContract
 {
     public function import(string $fileUrl): array
     {
+        if(!file_exists($fileUrl)){
+            throw new ReadingException('File not found', 404);
+        }
+
+        if(filesize($fileUrl) > 2048){
+            throw new ReadingException('The file is too large. Maximum 2MB.', 500);
+        }
+
         $primitiveCsv = [];
         $file = fopen($fileUrl, "r");
 
